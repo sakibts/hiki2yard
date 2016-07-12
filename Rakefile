@@ -1,4 +1,7 @@
-require'yard'
+require "bundler/gem_tasks"
+require 'yard'
+require "rake/testtask"
+
 p base_path = File.expand_path('..', __FILE__)
 p basename = File.basename(base_path)
 

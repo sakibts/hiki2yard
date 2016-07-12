@@ -14,6 +14,7 @@ module Hiki2yard
       @target_path = Dir.pwd
       p @base_name=File.basename(@target_path)
       p @source_path,@target_path
+      @opts={}
     end
 
     def execute
@@ -22,6 +23,9 @@ module Hiki2yard
         opt.on('-v', 'show program Version.') { |v|
           opt.version = Hiki2yard::VERSION
           puts opt.ver
+        }
+        opt.on('-f','--force','force copy new Rakefile.') {
+          @opts[:force]=true
         }
         opt.on('-i','--init','initialize hiki2yard directory.') { |v|
           init
@@ -38,13 +42,18 @@ module Hiki2yard
       mk_yardopts
       create_dir_if_not_exists(File.join(@target_path,'hikis'))
       create_dir_if_not_exists(File.join(@target_path,"#{@base_name}.wiki"))
+
       rev_gemspec
     end
 
     def rev_rakefile
       source=File.join(@source_path,'hiki2yard','new_rakefile')
       target=File.join(@target_path,'Rakefile')
-      copy_file_if_not_exists(source, target)
+      if @opts[:force] then
+        copy_file_even_if_exists(source, target)
+      else
+        copy_file_if_not_exists(source, target)
+      end
     end
 
     def mk_yardopts
@@ -59,6 +68,10 @@ module Hiki2yard
 
     def copy_file_if_not_exists(source, target)
       return if File::exists?(target)
+      FileUtils.cp(source,target,:verbose=>true) # :noop=>true)
+    end
+
+    def copy_file_even_if_exists(source, target)
       FileUtils.cp(source,target,:verbose=>true) # :noop=>true)
     end
 
