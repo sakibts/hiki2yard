@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 require 'optparse'
+require 'fileutils'
 require "hiki2yard/version"
-require 'hikiutils'
+
 
 module Hiki2yard
   class Command
@@ -13,8 +14,9 @@ module Hiki2yard
       @argv = argv
       @source_path = File.expand_path('..', __FILE__)
       @target_path = Dir.pwd
-      p @base_name=File.basename(@target_path)
-      p @source_path,@target_path
+      @base_name=File.basename(@target_path)
+      print "source_path= \'#{@source_path}\'\n"
+      print "target_path= \'#{@target_path}\'\n"
       @opts={}
     end
 
@@ -68,7 +70,10 @@ module Hiki2yard
     end
 
     def copy_file_if_not_exists(source, target)
-      return if File::exists?(target)
+      if File::exists?(target)
+        print "File #{target} exists, not copy.\n"
+        return
+      end
       FileUtils.cp(source,target,:verbose=>true) # :noop=>true)
     end
 
