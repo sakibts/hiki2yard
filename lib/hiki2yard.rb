@@ -52,6 +52,7 @@ module Hiki2yard
     def rev_rakefile
       source=File.join(@source_path,'hiki2yard','new_rakefile')
       target=File.join(@target_path,'Rakefile')
+      p @opts[:force] 
       if @opts[:force] then
         copy_file_even_if_exists(source, target)
       else

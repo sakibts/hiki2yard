@@ -5,6 +5,10 @@ require 'fileutils'
 p base_path = File.expand_path('..', __FILE__)
 p basename = File.basename(base_path)
 
+task :default do
+  system 'rake -T'
+end
+
 desc "make documents by yard"
 task :yard => [:hiki2md] do
   YARD::Rake::YardocTask.new
