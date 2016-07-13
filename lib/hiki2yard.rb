@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'optparse'
 require "hiki2yard/version"
+require 'hikiutils'
 
 module Hiki2yard
   class Command

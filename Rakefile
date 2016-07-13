@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 require 'yard'
 require "rake/testtask"
-
+require 'fileutils'
 p base_path = File.expand_path('..', __FILE__)
 p basename = File.basename(base_path)
 
@@ -21,14 +21,18 @@ task :hiki2md do
       system command
     when 'gif','png','pdf'
       p command="cp hikis/#{file} #{basename}.wiki/#{file}"
-      system command
+#      system command
+      FileUtils.cp("hikis/#{file}","#{basename}.wiki/#{file}",:verbose=>true)
+      FileUtils.cp("hikis/#{file}","doc/#{file}",:verbose=>true)
     end
   }
-  system "cp #{basename}.wiki/README_ja.md README.md"
-  system "cp #{basename}.wiki/README_ja.md #{basename}.wiki/Home.md"
-  system "cp docs/*.gif #{basename}.wiki"
-  system "cp docs/*.gif doc"
-  system "cp docs/*.png #{basename}.wiki"
-  system "cp docs/*.png doc"
+  readme_en="#{basename}.wiki/README_en.md"
+  readme_ja="#{basename}.wiki/README_ja.md"
+  if File.exists?(readme_en)
+    FileUtils.cp(readme_en,"./README.md",:verbose=>true)  
+  elsif File.exists?(readme_ja)
+    FileUtils.cp(readme_ja,"./README.md",:verbose=>true)
+    FileUtils.cp(readme_ja,"#{basename}.wiki/Home.md",:verbose=>true)
+  end
 end
 

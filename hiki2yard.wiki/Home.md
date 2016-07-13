@@ -27,6 +27,13 @@ $ hiki2yard --init
 
 と打ち込めば，自動的に環境を整備．
 
+```
+Usage: hiki2yard [options]
+    -v                               show program Version.
+    -f, --force                      force copy new Rakefile.
+    -i, --init                       initialize target directory.
+```
+
 ### 動作内容
 
 1. Rakefileをcopy
@@ -34,6 +41,34 @@ $ hiki2yard --init
 1. hikisディレクトリーを作成
 1. wikiディレクトリーを作成
   1. Githubでwikiを作成してからgit clone ***.wiki.gitのほうが確実．
+
+### directory構成
+だいぶ省略しているし，また，.yardoptsなどの隠れファイルもあるが，
+関連するdirectoryは以下のとおり．
+```
+.
+├── CODE_OF_CONDUCT.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE.txt
+├── README.md
+├── Rakefile
+├── doc
+│   ├── _index.html
+├── hiki2yard.wiki
+│   ├── Home.md
+│   ├── README_en.md
+│   ├── README_ja.md
+│   └── Why_hiki2yard.md
+├── hikis
+│   ├── README_en.hiki
+│   ├── README_ja.hiki
+│   ├── README_ja.hiki~
+│   └── Why_hiki2yard.hiki
+└── latexes
+
+13 directories, 46 files
+```
 
 ## その後
 
