@@ -59,119 +59,113 @@
 
       <iframe id="search_frame" src="file_list.html"></iframe>
 
-      <div id="content"><div id='filecontents'><h1>Hiki2yard</h1>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Hiki2yard">Hiki2yard</h1>
 
 <p>bundle gemで作られるdirectoryに，hikiからyard, wiki文書を作る環境を自動構築する．</p>
 
-<h2>動機</h2>
+<h2 id="label-%E5%8B%95%E6%A9%9F">動機</h2>
 
-<table><thead>
-<tr>
-<th style="text-align: left">link</th>
-<th style="text-align: left">wiki</th>
-<th style="text-align: left">doc</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">動機</td>
-<td style="text-align: left"><a href="Why_hiki2yard">why?</a></td>
-<td style="text-align: left"><a href="file.Why_hiki2yard.html">why?</a></td>
-</tr>
-</tbody></table>
+<p>| link | wiki | doc|
+|:----|:----|:----|
+| 動機 |<a
+href="http://Why_hiki2yard">why?</a>|<a
+href="http://file.Why_hiki2yard.html">why?</a>|</p>
 
-<h2>インストール</h2>
+<h2 id="label-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</h2>
 
 <p>以下のコマンドでgemとしてinstall:</p>
 
-<pre class="code ruby"><code class="ruby">$ gem install hiki2yard
-</code></pre>
+<pre class="code ruby"><code class="ruby">$ gem install hiki2yard</code></pre>
 
-<h2>Usage</h2>
+<h2 id="label-Usage">Usage</h2>
 
 <p>gemのdirectoryで</p>
 
-<pre class="code ruby"><code class="ruby">$ hiki2yard --init
-</code></pre>
+<pre class="code ruby"><code class="ruby">$ hiki2yard --init</code></pre>
 
 <p>と打ち込めば，自動的に環境を整備．</p>
 
 <pre class="code ruby"><code class="ruby">Usage: hiki2yard [options]
     -v                               show program Version.
     -f, --force                      force copy new Rakefile.
-    -i, --init                       initialize target directory.
-</code></pre>
+    -i, --init                       initialize target directory.</code></pre>
 
-<h3>動作内容</h3>
+<h3 id="label-%E5%8B%95%E4%BD%9C%E5%86%85%E5%AE%B9">動作内容</h3>
 
-<ol>
-<li>Rakefileをcopy</li>
-<li>.yardoptsファイルを作成</li>
-<li>hikisディレクトリーを作成</li>
-<li>wikiディレクトリーを作成
+<p>1. Rakefileをcopy
+1. .yardoptsファイルを作成
+1. hikisディレクトリーを作成
+1. wikiディレクトリーを作成
 
-<ol>
-<li>Githubでwikiを作成してからgit clone ***.wiki.gitのほうが確実．</li>
-</ol></li>
-</ol>
+1. Githubでwikiを作成してからgit clone <em>*</em>.wiki.gitのほうが確実．</p>
 
-<h3>directory構成</h3>
+<h3 id="label-directory%E6%A7%8B%E6%88%90">directory構成</h3>
 
 <p>だいぶ省略しているし，また，.yardoptsなどの隠れファイルもあるが，
-関連するdirectoryは以下のとおり．</p>
-
-<pre class="code ruby"><code class="ruby">.
-├── CODE_OF_CONDUCT.md
+関連するdirectoryは以下のとおり．
+```
+.
+├──
+CODE_OF_CONDUCT.md
 ├── Gemfile
 ├── Gemfile.lock
 ├── LICENSE.txt
-├── README.md
+├──
+README.md
 ├── Rakefile
 ├── doc
-│   ├── _index.html
+│ ├── _index.html
 ├── hiki2yard.wiki
-│   ├── Home.md
-│   ├── README_en.md
-│   ├── README_ja.md
-│   └── Why_hiki2yard.md
-├── hikis
-│   ├── README_en.hiki
-│   ├── README_ja.hiki
-│   ├── README_ja.hiki~
-│   └── Why_hiki2yard.hiki
-└── latexes
+│ ├──
+Home.md
+│ ├── README_en.md
+│ ├── README_ja.md
+│ └── Why_hiki2yard.md
+├──
+hikis
+│ ├── README_en.hiki
+│ ├── README_ja.hiki
+│ ├── README_ja.hiki~
+│ └──
+Why_hiki2yard.hiki
+└── latexes</p>
 
-13 directories, 46 files
-</code></pre>
+<p>13 directories, 46 files
+```</p>
 
-<h2>その後</h2>
+<h2 id="label-%E3%81%9D%E3%81%AE%E5%BE%8C">その後</h2>
 
-<ol>
-<li>hikisに適当にファイルを作成，編集</li>
-<li>rake yardでdocumentsが自動生成される．</li>
-</ol>
+<p>1. hikisに適当にファイルを作成，編集
+1. rake yardでdocumentsが自動生成される．</p>
 
-<h2>やり残し</h2>
+<h2 id="label-%E3%82%84%E3%82%8A%E6%AE%8B%E3%81%97">やり残し</h2>
 
-<ol>
-<li>mathjax用のひな形との切り替え．</li>
-<li>gemspecは手動で残した．</li>
-<li>リンク作成をwikiとdocで自動生成したいな．．．</li>
-<li>hiki2latexによるtex文書の自動生成．</li>
-</ol>
+<p>1. mathjax用のひな形との切り替え．
+1. gemspecは手動で残した．
+1. リンク作成をwikiとdocで自動生成したいな．．．
+1.
+hiki2latexによるtex文書の自動生成．</p>
 
-<h2>Contributing</h2>
+<h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/daddygongon/hiki2yard">https://github.com/daddygongon/hiki2yard</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://contributor-covenant.org">Contributor Covenant</a> code of conduct.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a
+href="https://github.com/daddygongon/hiki2yard">github.com/daddygongon/hiki2yard</a>.
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the <a
+href="http://contributor-covenant.org">Contributor Covenant</a> code of
+conduct.</p>
 
-<h2>License</h2>
+<h2 id="label-License">License</h2>
 
-<p>The gem is available as open source under the terms of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
+<p>The gem is available as open source under the terms of the <a
+href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Aug  3 13:17:07 2016 by
+  Generated on Wed Aug  3 14:35:07 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.2.2).
+  0.9.5 (ruby-2.0.0).
 </div>
 
     </div>
