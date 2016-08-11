@@ -59,52 +59,87 @@
 
       <iframe id="search_frame" src="file_list.html"></iframe>
 
-      <div id="content"><div id='filecontents'>
-<h1 id="label-%E6%A6%82%E8%A6%81">概要</h1>
+      <div id="content"><div id='filecontents'><h1>概要</h1>
 
 <p>なぜ，hiki2yardを開発する必要が生じたかを概説．</p>
 
-<h2 id="label-%E7%8A%B6%E6%B3%81">状況</h2>
+<h2>状況</h2>
 
-<h3 id="label-%E6%96%87%E6%9B%B8%E3%81%AE%E5%BC%B7%E7%B5%90%E5%90%88tight+binding%E7%90%86%E8%AB%96">文書の強結合tight binding理論</h3>
+<h3>文書の強結合tight binding理論</h3>
 
 <p>文書はソースに近いところにおいておくべし．そうすれば，source codeをいじった時に，ちょっとしたコメントを残す気になる．</p>
 
-<h3 id="label-%E6%96%87%E6%9B%B8%E3%81%AE%E5%AF%BE%E8%B1%A1%E8%80%85">文書の対象者</h3>
+<h3>文書の対象者</h3>
 
 <p>rubyでprogramを開発する際には，gemとして配布することが最終目標となる．
 したがって，そのための雛形が，</p>
 
-<pre class="code ruby"><code class="ruby">bundle gem [-b] gem_name</code></pre>
+<pre class="code ruby"><code class="ruby">bundle gem [-b] gem_name
+</code></pre>
 
 <p>で自動再生される．そこで用意されている文書作成は開発者向けのyardがある．</p>
 
 <p>他の多くの対象者むけに，一斉に作成したい．以下がその対象者の一覧．</p>
 
-<p>|directory|format| for |対象者|
-|:----|:----|:----|:----|
-| hikis | hiki |hiki
-|自分|
-| converter | hiki2md|
-| gem_name.wiki | md | github|ユーザ（使用法）|
-|
-converter |yard|
-| doc | html | gem |開発者，あるいは改良者|
-| converter
-|hiki2latex|
-| docs | latex | 卒論，修論pdf | 学生，教授|</p>
+<table><thead>
+<tr>
+<th style="text-align: left">directory</th>
+<th style="text-align: left">format</th>
+<th style="text-align: left">for</th>
+<th style="text-align: left">対象者</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">hikis</td>
+<td style="text-align: left">hiki</td>
+<td style="text-align: left">hiki</td>
+<td style="text-align: left">自分</td>
+</tr>
+<tr>
+<td style="text-align: left">converter</td>
+<td style="text-align: left">hiki2md</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">gem_name.wiki</td>
+<td style="text-align: left">md</td>
+<td style="text-align: left">github</td>
+<td style="text-align: left">ユーザ（使用法）</td>
+</tr>
+<tr>
+<td style="text-align: left">converter</td>
+<td style="text-align: left">yard</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">doc</td>
+<td style="text-align: left">html</td>
+<td style="text-align: left">gem</td>
+<td style="text-align: left">開発者，あるいは改良者</td>
+</tr>
+<tr>
+<td style="text-align: left">converter</td>
+<td style="text-align: left">hiki2latex</td>
+<td style="text-align: left"></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">docs</td>
+<td style="text-align: left">latex</td>
+<td style="text-align: left">卒論，修論pdf</td>
+<td style="text-align: left">学生，教授</td>
+</tr>
+</tbody></table>
 
 <p>hiki2yardではこれらの文書作成を容易にするcommandを提供することを目的としている．</p>
 </div></div>
 
       <div id="footer">
-<<<<<<< HEAD
-  Generated on Wed Aug  3 14:35:07 2016 by
-=======
-  Generated on Thu Aug  4 17:50:13 2016 by
->>>>>>> 870017a9def1c088417679f752dc3dacca959521
+  Generated on Thu Aug 11 16:48:11 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.0.0).
+  0.9.5 (ruby-2.2.2).
 </div>
 
     </div>

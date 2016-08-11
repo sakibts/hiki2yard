@@ -41,12 +41,28 @@ module Hiki2yard
     end
 
     def init
-      rev_rakefile
+      rev_rakefile2
       mk_yardopts
       create_dir_if_not_exists(File.join(@target_path,'hikis'))
       create_dir_if_not_exists(File.join(@target_path,"#{@base_name}.wiki"))
-
+      create_dir_if_not_exists(File.join(@target_path,'latexes'))
+      add_pre_in_latexes
       rev_gemspec
+    end
+
+    def add_pre_in_latexes
+      source=File.join(@source_path,'hiki2yard','handout_pre.tex')
+      target=File.join(@target_path,'latexes')
+      p command = "cp #{source} #{target}"
+      system command
+    end
+
+    def rev_rakefile2
+      rev_rakefile
+      source=File.join(@source_path,'hiki2yard','latex_task.rb')
+      target=File.join(@target_path,'Rakefile')
+      p command = "cat #{source} >> #{target}"
+      system command
     end
 
     def rev_rakefile
@@ -87,6 +103,7 @@ module Hiki2yard
   spec.add_development_dependency "yard"
   spec.add_development_dependency "hiki2md"
   spec.add_development_dependency "mathjax-yard"
+  spec.add_development_dependency "hiki2latex"
 EOS
       print "add follows at the tail of #{@target_path}/#{@base_name}.gemspec\n"
       print cont
