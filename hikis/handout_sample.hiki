@@ -14,7 +14,7 @@ hikiフォーマット文書をlatexフォーマットに変換するhiki2latex[
 !環境構築
 terminal上で
  hiki2yard --init
-によって，必要となるファイルが自動的に配置される．支持に従って，hogehoge.gemspecを
+によって，必要となるファイルが自動的に配置される．指示に従って，hogehoge.gemspecを
 手動で修正する必要がある．さらに，
  bundle update
 によって，必要なgem filesがinstallされる．
