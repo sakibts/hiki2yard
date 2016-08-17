@@ -33,10 +33,31 @@ task :hiki2md do
   readme_en="#{basename}.wiki/README_en.md"
   readme_ja="#{basename}.wiki/README_ja.md"
   if File.exists?(readme_en)
-    FileUtils.cp(readme_en,"./README.md",:verbose=>true)  
+    FileUtils.cp(readme_en,"./README.md",:verbose=>true)
   elsif File.exists?(readme_ja)
     FileUtils.cp(readme_ja,"./README.md",:verbose=>true)
     FileUtils.cp(readme_ja,"#{basename}.wiki/Home.md",:verbose=>true)
   end
 end
+
+desc "transfer hikis/*.hiki to latex"
+task :latex do
+  target = 'handout_sample'
+  command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
+  system command
+  command = "open latexes/#{target}.tex"
+  system command
+end
+
+
+
+desc "transfer hikis/*.hiki to latex"
+task :latex do
+  target = 'handout_sample'
+  command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
+  system command
+  command = "open latexes/#{target}.tex"
+  system command
+end
+
 
