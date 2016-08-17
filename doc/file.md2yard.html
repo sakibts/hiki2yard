@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+                           tex2jax:{
+      inlineMath: [ ['$','$'], ["\(","\)"] ],
+      displayMath: [ ['$$','$$'], ["\[","\]"] ]
+                           }
+                         });
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+    </script>
+    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
@@ -59,113 +71,71 @@
 
       <iframe id="search_frame" src="file_list.html"></iframe>
 
-      <div id="content"><div id='filecontents'>
-<h1 id="label-%E6%A6%82%E8%A6%81">概要</h1>
+      <div id="content"><div id='filecontents'><h1>概要</h1>
 
 <p>rake yardでdoc/file.*.htmlを作成した時に，うまくcodeがhighlight変換されない．</p>
 
-<h1 id="label-%E7%B5%8C%E9%81%8E">経過</h1>
+<h1>経過</h1>
 
 <p>8/3のゼミでerinjinuへ説明しているときに，俺のでは正常に変換されるのに，erijinuのmac上では変換されないことが判明</p>
 
-<h2 id="label-rake+yard%E3%81%A7pre%E3%81%8C%E3%81%86%E3%81%BE%E3%81%8F%E9%80%9A%E3%82%89%E3%81%AA%E3%81%84%E7%90%86%E7%94%B1">rake yardでpreがうまく通らない理由</h2>
-<ul><li>
-<p>原因不明</p>
-</li><li>
-<p>おれが，yardをいじっちゃったのかも．得にcodeの前後にpreをつけたような記憶が．．．</p>
-</li><li>
-<p>ただそれがどこにあるのか不明．version変わってるので，消えてると思うんやけど．</p>
-</li><li>
-<p>もう少し探してみます．</p>
-</li></ul>
+<h2>rake yardでpreがうまく通らない理由</h2>
 
-<h3 id="label-%E5%AF%BE%E7%AD%96">対策</h3>
+<ul>
+<li>原因不明</li>
+<li>おれが，yardをいじっちゃったのかも．得にcodeの前後にpreをつけたような記憶が．．．</li>
+<li>ただそれがどこにあるのか不明．version変わってるので，消えてると思うんやけど．</li>
+<li>もう少し探してみます．</li>
+</ul>
+
+<h3>対策</h3>
 
 <p>とりあえず，wikiで登録するようにした．なんかしらんけど，直接あげられるし．</p>
 
-<h1 id="label-%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2">作業メモ</h1>
+<h1>作業メモ</h1>
 
 <p>とりあえず，/usr/local/lib/ruby/gems/2.2.0/gems/yard-0.9.5で穴をほってみたが，お宝は，見当たらず．</p>
 
-<h2 id="label-%E5%8E%9F%E5%9B%A0%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E5%A0%B4%E6%89%80">原因コードの場所</h2>
+<h2>原因コードの場所</h2>
 
-<pre class="code ruby"><code class="ruby">lib/yard/templates/helpers/html_helper.rb:        html.gsub(/&lt;pre\s*(?:lang=&quot;(.+?)&quot;)?&gt;(?:\s*&lt;code\s*(?:class=&quot;(.+?)&quot;)?\s*&gt;)?(.+?)(?:&lt;\/code&gt;\s*)?&lt;\/pre&gt;/m) do
+<pre class="code tcsh"><code class="tcsh">lib/yard/templates/helpers/html_helper.rb:        html.gsub(/&lt;pre\s*(?:lang=&quot;(.+?)&quot;)?&gt;(?:\s*&lt;code\s*(?:class=&quot;(.+?)&quot;)?\s*&gt;)?(.+?)(?:&lt;\/code&gt;\s*)?&lt;\/pre&gt;/m) do
 lib/yard/templates/helpers/html_helper.rb:          %Q{&lt;pre class=&quot;#{classes}&quot;&gt;&lt;code class=&quot;#{language}&quot;&gt;#{string}&lt;/code&gt;&lt;/pre&gt;}
 
 emacs lib/yard/templates/helpers/html_helper.rb
 
 
-templates/default/tags/html/example.erb:      &lt;pre class=&quot;example code&quot;&gt;&lt;code&gt;&lt;%= html_syntax_highlight(tag.text) %&gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
+templates/default/tags/html/example.erb:      &lt;pre class=&quot;example code&quot;&gt;&lt;code&gt;&lt;%= html_syntax_highlight(tag.text) %&gt;&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
 <p>html_helper.rbに記述があるが，ちゃんと動いているようで，erijinuでなぜ動かないかが不明．erijinuでdebugが必要か．．．</p>
 
-<h2 id="label-%E3%81%9D%E3%81%AE%E4%BB%96">その他</h2>
+<h2>その他</h2>
 
-<p>“`</p>
+<pre class="code ruby"><code class="ruby">
+bob% grep &quot;&lt;code&quot; */*/*/*.*rb
+spec/templates/helpers/html_helper_spec.rb:      expect(html).to match %r{^&lt;p&gt;Introduction:&lt;/p&gt;.*&lt;code class=&quot;ruby&quot;&gt;}m
+spec/templates/helpers/html_helper_spec.rb:      expect(subject.htmlify(&#39;&lt;pre&gt;&lt;code&gt;def x; end&lt;/code&gt;&lt;/pre&gt;&#39;, :html)).to eq(
+spec/templates/helpers/html_helper_spec.rb:        &#39;&lt;pre class=&quot;code NAME&quot;&gt;&lt;code class=&quot;NAME&quot;&gt;foobar&lt;/code&gt;&lt;/pre&gt;&#39;)
+spec/templates/helpers/html_helper_spec.rb:      expect(subject.htmlify(&quot;&lt;pre&gt;&lt;code&gt;!!!LANG\ndef x; end&lt;/code&gt;&lt;/pre&gt;&quot;, :html)).to eq(
+spec/templates/helpers/html_helper_spec.rb:        &#39;&lt;pre class=&quot;code LANG&quot;&gt;&lt;code class=&quot;LANG&quot;&gt;foobar&lt;/code&gt;&lt;/pre&gt;&#39;)
+spec/templates/helpers/html_helper_spec.rb:      expect(subject.htmlify(&#39;&lt;pre lang=&quot;foo&quot;&gt;&lt;code&gt;{&quot;foo&quot; =&gt; 1}&lt;/code&gt;&lt;/pre&gt;&#39;, :html)).to eq(
+spec/templates/helpers/html_helper_spec.rb:        &#39;&lt;pre class=&quot;code foo&quot;&gt;&lt;code class=&quot;foo&quot;&gt;{&amp;quot;foo&amp;quot; =&amp;gt; 1}&lt;/code&gt;&lt;/pre&gt;&#39;)
+spec/templates/helpers/html_helper_spec.rb:      expect(subject.htmlify(&#39;&lt;pre lang=&quot;foo&quot;&gt;&lt;code&gt;x = 1&lt;/code&gt;&lt;/pre&gt;&#39;, :html)).to eq(
+spec/templates/helpers/html_helper_spec.rb:        &#39;&lt;pre class=&quot;code foo&quot;&gt;&lt;code class=&quot;foo&quot;&gt;x = 1&lt;/code&gt;&lt;/pre&gt;&#39;)
+spec/templates/helpers/html_helper_spec.rb:      expect(subject.htmlify(&#39;&lt;pre&gt;&lt;code class=&quot;foo&quot;&gt;x = 1&lt;/code&gt;&lt;/pre&gt;&#39;, :html)).to eq(
+spec/templates/helpers/html_helper_spec.rb:        &#39;&lt;pre class=&quot;code foo&quot;&gt;&lt;code class=&quot;foo&quot;&gt;x = 1&lt;/code&gt;&lt;/pre&gt;&#39;)
+[bob:2.2.0/gems/yard-0.9.5] bob% grep &quot;&lt;code&quot; */*/*/*/*.*rb
+spec/templates/helpers/markup/rdoc_markup_spec.rb:      expect(to_html(&#39;Hello +&lt;code&gt;+&#39;)).to eq &#39;&lt;p&gt;Hello &lt;tt&gt;&amp;lt;code&amp;gt;&lt;/tt&gt;&lt;/p&gt;&#39;
+spec/templates/helpers/markup/rdoc_markup_spec.rb:      expect(fix_typewriter(&quot;&lt;code&gt;Hello +hello+&lt;/code&gt;&quot;)).to eq &quot;&lt;code&gt;Hello +hello+&lt;/code&gt;&quot;
 
-<p>bob% grep “&lt;code”
-<em>/</em>/<em>/</em>.&lt;em&gt;rb
-spec/templates/helpers/html_helper_spec.rb:
-expect(html).to match
-%rclass=&quot;ruby&quot;&gt;m
-spec/templates/helpers/html_helper_spec.rb:
-expect(subject.htmlify(&#39;&lt;pre&gt;<code>def x;
-end</code>&lt;/pre&gt;&#39;, :html)).to
-eq(
-spec/templates/helpers/html_helper_spec.rb: &#39;&lt;pre
-class=&quot;code NAME&quot;&gt;&lt;code
-class=&quot;NAME&quot;&gt;foobar&lt;/code&gt;&lt;/pre&gt;&#39;)
-spec/templates/helpers/html_helper_spec.rb:
-expect(subject.htmlify(&quot;&lt;pre&gt;<code>!!!LANG\ndef x;
-end</code>&lt;/pre&gt;&quot;, :html)).to
-eq(
-spec/templates/helpers/html_helper_spec.rb: &#39;&lt;pre
-class=&quot;code LANG&quot;&gt;&lt;code
-class=&quot;LANG&quot;&gt;foobar&lt;/code&gt;&lt;/pre&gt;&#39;)
-spec/templates/helpers/html_helper_spec.rb:
-expect(subject.htmlify(&#39;&lt;pre
-lang=&quot;foo&quot;&gt;<code>{&quot;foo&quot; =&gt;
-1}</code>&lt;/pre&gt;&#39;, :html)).to
-eq(
-spec/templates/helpers/html_helper_spec.rb: &#39;&lt;pre
-class=&quot;code foo&quot;&gt;&lt;code
-class=&quot;foo&quot;&gt;=&gt;
-1&lt;/code&gt;&lt;/pre&gt;&#39;)
-spec/templates/helpers/html_helper_spec.rb:
-expect(subject.htmlify(&#39;&lt;pre lang=&quot;foo&quot;&gt;<code>x =
-1</code>&lt;/pre&gt;&#39;, :html)).to
-eq(
-spec/templates/helpers/html_helper_spec.rb: &#39;&lt;pre
-class=&quot;code foo&quot;&gt;&lt;code class=&quot;foo&quot;&gt;x =
-1&lt;/code&gt;&lt;/pre&gt;&#39;)
-spec/templates/helpers/html_helper_spec.rb:
-expect(subject.htmlify(&#39;&lt;pre&gt;&lt;code class=&quot;foo&quot;&gt;x
-= 1&lt;/code&gt;&lt;/pre&gt;&#39;, :html)).to
-eq(
-spec/templates/helpers/html_helper_spec.rb: &#39;&lt;pre
-class=&quot;code foo&quot;&gt;&lt;code class=&quot;foo&quot;&gt;x =
-1&lt;/code&gt;&lt;/pre&gt;&#39;)
-[bob:2.2.0/gems/yard-0.9.5] bob% grep
-&quot;&lt;code&quot;
-<em>/</em>/_/<em>/</em>._rb
-spec/templates/helpers/markup/rdoc_markup_spec.rb:
-expect(to_html(&#39;Hello +&lt;code&gt;+&#39;)).to eq &#39;&lt;p&gt;Hello
-<code>&lt;code&gt;</code>&lt;/p&gt;&#39;
-spec/templates/helpers/markup/rdoc_markup_spec.rb:
-expect(fix_typewriter(&quot;<code>Hello hello</code>&quot;)).to eq
-&quot;<code>Hello hello</code>&quot;</p>
-
-<p>他のはspecばかり．</p>
+他のはspecばかり．
+</code></pre>
 </div></div>
 
       <div id="footer">
-<<<<<<< HEAD
-  Generated on Wed Aug 10 13:30:14 2016 by
-=======
-  Generated on Thu Aug 11 16:48:11 2016 by
->>>>>>> 36b98fc4249545c2463db0c08c9e14fd4508dd52
+  Generated on Wed Aug 17 19:14:02 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.5 (ruby-2.0.0).
+  0.9.5 (ruby-2.2.2).
 </div>
 
     </div>

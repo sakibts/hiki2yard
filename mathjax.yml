@@ -1,0 +1,8 @@
+---
+lib/../hiki2yard.wiki/sakibts.mjx.md:
+  "$MATHJAX1$": "$\\rightarrow$"
+lib/../hiki2yard.wiki/TexManual.mjx.md:
+  "$MATHJAX2$": "$\\rightarrow$"
+  "$MATHJAX3$": "$\\rightarrow$"
+  "$MATHJAX4$": "$\\rightarrow$"
+  "$MATHJAX5$": "$\\rightarrow$"

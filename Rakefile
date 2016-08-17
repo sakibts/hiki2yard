@@ -42,22 +42,22 @@ end
 
 desc "transfer hikis/*.hiki to latex"
 task :latex do
-  target = 'handout_sample'
-  command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
-  system command
-  command = "open latexes/#{target}.tex"
-  system command
+  p Dir.glob('./hikis/*')
+  targets = ['handout_sample','TexManual']
+  targets.each{|target|
+    p command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
+    system command
+    command = "open latexes/#{target}.tex"
+    system command
+  }
 end
 
-
-
-desc "transfer hikis/*.hiki to latex"
-task :latex do
-  target = 'handout_sample'
-  command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
-  system command
-  command = "open latexes/#{target}.tex"
-  system command
+desc "arrange yard target by mathjax-yard"
+task :pre_math do
+  system('mathjax-yard')
 end
 
-
+desc "make yard documents with yardmath"
+task :myard => [:hiki2md, :pre_math,:yard] do
+  system('mathjax-yard --post')
+end
