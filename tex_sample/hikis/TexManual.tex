@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\begin{document}
+\section{TexManual}
+\subsection{teXShopの設定}\begin{itemize}
+\item 1　『設定』 ▶ ︎書類 ▶ ︎エンコーディング ▶︎ Unicode(UTF-8)
+\item 2  『設定プロファイル』▶︎　pTeX(ptex2pdf)を選択
+\item 3  TeXShopを再起動
+\end{itemize}
+\subsection{必要なgemの確認}\begin{itemize}
+\item gem listコマンドを入力,以下のgemが入っているか確認\begin{itemize}
+\item hikidoc
+\item hikiutils
+\end{itemize}
+\end{itemize}
+▶︎︎無ければ(sudo) gem install hogehogeで入れる
+
+\subsection{入力の方法}\begin{itemize}
+\item open -a mi hogehogeでファイルを開き,入力していく
+\end{itemize}
+\subsection{作ったtextをページにして表示}\begin{itemize}
+\item hiki -e hogehoge で編集
+\item hiki -u hogehoge で表示
+\end{itemize}
+\subsection{pdfファイルへの変換方法}\begin{itemize}
+\item 1 hiki2latex hogehoge.hiki > hogehoge.tex
+\item 2 hikidoc hogehoge.hiki > hogehoge.html (必要あるのか不明)
+\item 3 open hogehoge.tex
+\item 4TeXShopが開く. 左上のタイプセットを押すとpdfファイルが出力される
+\end{itemize}
+\end{document}
