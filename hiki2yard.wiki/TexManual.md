@@ -19,7 +19,7 @@
 - hiki -u hogehoge で表示
 
 ## pdfファイルへの変換方法
-1. hiki2latex hogehoge.hiki > hogehoge.tex
-1. hikidoc hogehoge.hiki > hogehoge.html
+1. hiki2latex hogehoge.hiki $>$ hogehoge.tex
+1. hikidoc hogehoge.hiki $>$ hogehoge.html
 1. open hogehoge.tex
 1. TeXShopが開く. 左上のタイプセットを押すとpdfファイルが出力される

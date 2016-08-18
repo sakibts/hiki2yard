@@ -20,16 +20,31 @@ rubyのgem directoryは，すべての開発者がはじめてそのコードを
 
 # 幾つかの注意(16/8/17)
 updateされたのに対する幾つかの注意です．
+
 ## システムについての注意
 - directoryのなかで，何処にfileを置くかは決めてあります．なぜかは概要に書きました．勝手にdirecotryを作るのではなく，今あるdirectoryの中での操作をRakefileに書き加えるようにしてください．
   - tex_sampleは不用ですので，削除してください．
 - hikis/TexManual.hikiに移しました．そこから自動でlatexesへ生成するようにRakefileを修正しています．
+
 ## hikiの記述に関する注意
-- number listは#で書いていく．
+- number listは\#で書いていく．
 - へんな記号は使わない．右三角．これは，latexで解釈できないため，変換されないためです．
 - $\rightarrow$を使う．ただし，hikiでの表示ができていない．これは，hiki2yardではできません．
   - mathjaxを使えるようにします．その手順は次に記述します．
 
 ## mathjax-yardについて
 標準yardで変換されるmdファイル内で，数式を表示することを可能にする拡張機能です．yard処理の前後にmathjaxのための処理を挟んで，標準的なgemディレクトリ内にあるmdファイルをdoc/file.**に変換後にlatex記法の数式を表示します．
+
 ### 操作法
+```
+gem install mathjax-yard
+```
+でinstall.
+```
+mathjax-yard -i
+```
+でinitしてくれます．後は，　
+```
+rake myard
+```
+でyardがhtmlに自動的に変換してくれます．
