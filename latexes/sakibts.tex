@@ -11,8 +11,9 @@
 \pagestyle{empty}
 \begin{document}
 \section{title}
-\section{name}
-\section{作業}
+yardによる数値計算関連文書作成システムの構築
+
+\section{作業（16/8/4）}
 以下の作業を今週中にやってください．
 \begin{enumerate}
 \item hiki2latexをhiki2yard.gemspecに入れて，bundle updateで取ってくる．
@@ -22,4 +23,36 @@
 \item Rakefileにsakibts.hikiをlatex/sakibts.texに変換するruby codeを書く．
 \end{enumerate}
 できないとみんなの中間発表用のabstractが作れません．がんばってね．
+
+\section{幾つかの注意(16/8/17)}
+updateされたのに対する幾つかの注意です．
+
+\subsection{システムについての注意}\begin{itemize}
+\item directoryのなかで，何処にfileを置くかは決めてあります．なぜかは概要に書きました．勝手にdirecotryを作るのではなく，今あるdirectoryの中での操作をRakefileに書き加えるようにしてください．\begin{itemize}
+\item tex\_sampleは不用ですので，削除してください．
+\end{itemize}
+\item hikis/TexManual.hikiに移しました．そこから自動でlatexesへ生成するようにRakefileを修正しています．
+\end{itemize}
+\subsection{hikiの記述に関する注意}\begin{itemize}
+\item number listは\#で書いていく．
+\item へんな記号は使わない．右三角．これは，latexで解釈できないため，変換されないためです．
+\item $\rightarrow$を使う．ただし，hikiでの表示ができていない．これは，hiki2yardではできません．\begin{itemize}
+\item mathjaxを使えるようにします．その手順は次に記述します．
+\end{itemize}
+\end{itemize}
+\subsection{mathjax-yardについて}
+標準yardで変換されるmdファイル内で，数式を表示することを可能にする拡張機能です．yard処理の前後にmathjaxのための処理を挟んで，標準的なgemディレクトリ内にあるmdファイルをdoc/file.**に変換後にlatex記法の数式を表示します．
+
+\subsubsection{操作法}\begin{quote}\begin{verbatim}
+gem install mathjax-yard
+\end{verbatim}\end{quote}
+でinstall.
+\begin{quote}\begin{verbatim}
+mathjax-yard -i
+\end{verbatim}\end{quote}
+でinitしてくれます．後は，　
+\begin{quote}\begin{verbatim}
+rake myard
+\end{verbatim}\end{quote}
+でyardがhtmlに自動的に変換してくれます．
 \end{document}

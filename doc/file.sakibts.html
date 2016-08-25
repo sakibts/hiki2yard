@@ -111,8 +111,12 @@
 <ul>
 <li>tex_sampleは不用ですので，削除してください．</li>
 </ul></li>
-<li>hikis/TexManual.hikiに移しました．そこから自動でlatexesへ生成するようにRakefileを修正しています．
-## hikiの記述に関する注意</li>
+<li>hikis/TexManual.hikiに移しました．そこから自動でlatexesへ生成するようにRakefileを修正しています．</li>
+</ul>
+
+<h2>hikiの記述に関する注意</h2>
+
+<ul>
 <li>number listは#で書いていく．</li>
 <li>へんな記号は使わない．右三角．これは，latexで解釈できないため，変換されないためです．</li>
 <li>$\rightarrow$を使う．ただし，hikiでの表示ができていない．これは，hiki2yardではできません．
@@ -127,10 +131,25 @@
 <p>標準yardで変換されるmdファイル内で，数式を表示することを可能にする拡張機能です．yard処理の前後にmathjaxのための処理を挟んで，標準的なgemディレクトリ内にあるmdファイルをdoc/file.**に変換後にlatex記法の数式を表示します．</p>
 
 <h3>操作法</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_mathjax'>mathjax</span><span class='op'>-</span><span class='id identifier rubyid_yard'>yard</span>
+</code></pre>
+
+<p>でinstall.</p>
+
+<pre class="code ruby"><code class="ruby">mathjax-yard -i
+</code></pre>
+
+<p>でinitしてくれます．後は，　</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_myard'>myard</span>
+</code></pre>
+
+<p>でyardがhtmlに自動的に変換してくれます．</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Aug 17 19:14:02 2016 by
+  Generated on Thu Aug 18 13:32:06 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.2).
 </div>
