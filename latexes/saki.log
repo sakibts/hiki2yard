@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.11.26)  27 AUG 2016 16:23
+This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.11.26)  27 AUG 2016 16:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -67,7 +67,7 @@ eX Live/ChoF)
 \Gin@req@height=\dimen122
 \Gin@req@width=\dimen123
 )
-No file saki.aux.
+(./saki.aux)
 \openout1 = `saki.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -87,25 +87,25 @@ LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 41.
+(Font)              scaled to size 9.60999pt on input line 35.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 41.
+(Font)              scaled to size 9.60999pt on input line 35.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--43
-\OT1/cmtt/m/n/10 http://morizyun.github.io/blog/yard-rails-ruby-gem-document-ht
-ml/
+Overfull \hbox (34.7849pt too wide) in paragraph at lines 34--37
+[]\OT1/cmr/m/n/10 #5 \JY1/mc/m/n/10 参考文献 \OT1/cmtt/m/n/10 http://morizyun.g
+ithub.io/blog/yard-rails-ruby-gem-document-html/
  []
 
 [1
 
-] [2] (./saki.aux) ) 
+] (./saki.aux) ) 
 Here is how much of TeX's memory you used:
- 710 strings out of 493807
- 8177 string characters out of 6151950
+ 712 strings out of 493807
+ 8195 string characters out of 6151950
  66465 words of memory out of 5000000
  4238 multiletter control sequences out of 15000+600000
  8829 words of font info for 39 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  25i,4n,21p,196b,163s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on saki.dvi (2 pages, 3528 bytes).
+Output written on saki.dvi (1 page, 3424 bytes).
