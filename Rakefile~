@@ -45,7 +45,7 @@ task :latex do
   p Dir.glob('./hikis/*')
   targets = ['handout_sample','TexManual','sakibts','saki']
   targets.each{|target|
-    p command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
+    p command = "hiki2latex --pre hikis/#{target}.hiki > latexes/#{target}.tex"
     system command
     command = "open latexes/#{target}.tex"
     system command

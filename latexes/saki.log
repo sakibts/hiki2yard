@@ -1,10 +1,10 @@
-This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.11.26)  27 AUG 2016 16:30
+This is e-pTeX, Version 3.14159265-p3.5-130605-2.6 (utf8.euc) (TeX Live 2014) (preloaded format=platex 2014.11.26)  27 AUG 2016 16:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**TexManual
-(./TexManual.tex
+**saki
+(./saki.tex
 pLaTeX2e <2006/11/10> (based on LaTeX2e <2014/05/01> patch level 0)
 Babel <3.9k> and hyphenation patterns for 78 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/platex/jsclasses/jsarticle.cls
@@ -67,8 +67,8 @@ eX Live/ChoF)
 \Gin@req@height=\dimen122
 \Gin@req@width=\dimen123
 )
-No file TexManual.aux.
-\openout1 = `TexManual.aux'.
+No file saki.aux.
+\openout1 = `saki.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -86,67 +86,26 @@ LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 4.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 4.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 4.
+(Font)              scaled to size 9.60999pt on input line 41.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 4.
-LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 5.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 5.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 5.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 11.53198pt on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 6.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 6.72699pt on input line 6.
-LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 4.805pt on input line 6.
-Missing character: There is no ^^ef in font cmr10!
-Missing character: There is no ^^b8 in font cmr10!
-Missing character: There is no ^^8e in font cmr10!
-Missing character: There is no ^^ef in font cmr10!
-Missing character: There is no ^^b8 in font cmr10!
-Missing character: There is no ^^8e in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 12.
-LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 12.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 12.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 12.
-Missing character: There is no ^^ef in font cmr10!
-Missing character: There is no ^^b8 in font cmr10!
-Missing character: There is no ^^8e in font cmr10!
-Missing character: There is no ^^ef in font cmr10!
-Missing character: There is no ^^b8 in font cmr10!
-Missing character: There is no ^^8e in font cmr10!
- [1
+(Font)              scaled to size 9.60999pt on input line 41.
 
-]
-(./TexManual.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
+\OT1/cmtt/m/n/10 http://morizyun.github.io/blog/yard-rails-ruby-gem-document-ht
+ml/
+ []
+
+[1
+
+] [2] (./saki.aux) ) 
 Here is how much of TeX's memory you used:
- 744 strings out of 493807
- 8730 string characters out of 6151950
- 67465 words of memory out of 5000000
- 4266 multiletter control sequences out of 15000+600000
- 11655 words of font info for 54 fonts, out of 8000000 for 9000
+ 710 strings out of 493807
+ 8177 string characters out of 6151950
+ 66465 words of memory out of 5000000
+ 4238 multiletter control sequences out of 15000+600000
+ 8829 words of font info for 39 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 25i,4n,21p,201b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,4n,21p,196b,163s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on TexManual.dvi (1 page, 1808 bytes).
+Output written on saki.dvi (2 pages, 3528 bytes).

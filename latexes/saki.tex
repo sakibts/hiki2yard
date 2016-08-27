@@ -1,19 +1,25 @@
+\documentclass[12pt,a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\begin{document}
 hiki2yard
 
 yard による数値計算システムの構築
-
-#はじめに
+\begin{enumerate}
+\item はじめに
+\end{enumerate}
 rubyでprogramを開発する際には,gemとして配布することが最終目標となる.
 gemの生成は雛形を使えば自動で行うことができるが,配布するには,開発者向けの文書も作成しなければいけない.
 文書作成のためにyardがあるが,多くの対象者にむけての文書を作る必要があるため
 hiki2yardではこれらの文書作成を容易にするコマンドの提供を目的とする.
-
-#Yard
+\begin{enumerate}
+\item Yard
+\end{enumerate}
 yardとはrubyのドキュメントを生成をするgem.
 フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.
 今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている.
-
-#目的
+\begin{enumerate}
+\item 目的
+\end{enumerate}
 rubyのgem directoryは,すべての開発者がはじめてそのコードを見たときにも迷わないように,
 決まった構造になっている.
 特に,docディレクトリーはrubygemsでのdocumentのデフォルトディレクトリーとして,
@@ -24,11 +30,14 @@ wikiディレクトリーはgithubのデフォルトディレクトリーとし�
 hiki2yardで目指すものも同じ.
 決まった構造にするとこで,hikiフォーマットで書かれた文書から,
 yard,wiki文書を作る環境を自動構築することを目的としている.
-
-#手法
+\begin{enumerate}
+\item 手法
+\end{enumerate}
 西谷研究室の先輩方が研究を進められていた,hikiから卒業論文等に使用するためのtex形式にするhiki2latexを参考に進めていく.
 gemのRakefileを書き換えることで,誰もが見やすく使いやすいコマンドを提供する.
-
-#参考文献
-http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/
+\begin{enumerate}
+\item 参考文献
+\end{enumerate}
+\verb|http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/|
 2016/08/  アクセス
+\end{document}
