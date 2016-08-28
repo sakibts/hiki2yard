@@ -42,8 +42,7 @@ end
 
 desc "transfer hikis/*.hiki to latex"
 task :latex do
-  p Dir.glob('./hikis/*')
-  targets = ['handout_sample','TexManual','sakibts']
+  targets = ['handout_sample','TexManual','sakibts','saki']
   targets.each{|target|
     p command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
     system command
@@ -61,3 +60,13 @@ desc "make yard documents with yardmath"
 task :myard => [:hiki2md, :pre_math,:yard] do
   system('mathjax-yard --post')
 end
+desc "transfer hikis/*.hiki to latex"
+task :latex do
+  target = 'handout_sample'
+  command = "hiki2latex --pre latexes/handout_pre.tex hikis/#{target}.hiki > latexes/#{target}.tex"
+  system command
+  command = "open latexes/#{target}.tex"
+  system command
+end
+
+

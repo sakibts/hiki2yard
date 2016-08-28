@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-                           tex2jax:{
-      inlineMath: [ ['$','$'], ["\(","\)"] ],
-      displayMath: [ ['$$','$$'], ["\[","\]"] ]
-                           }
-                         });
-    </script>
-    <script type="text/javascript"
-            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
-    </script>
-    <meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
@@ -71,15 +59,48 @@
 
       <iframe id="search_frame" src="file_list.html"></iframe>
 
-      <div id="content"><div id='filecontents'><p>hiki2yard</p>
+      <div id="content"><div id='filecontents'><h1>title:yard による数値計算システムの構築</h1>
 
-<p>ここに打ち込む
-hikiをyardに変換するコマンドを提供することが目標
-hello.</p>
+<h1>author:sakibts</h1>
+
+<h1>はじめに</h1>
+
+<p>rubyでprogramを開発する際には,gemとして配布することが最終目標となる.
+gemの生成は雛形を使えば自動で行うことができるが,配布するには,開発者向けの文書も作成しなければいけない.
+文書作成のためにyardがあるが,多くの対象者にむけての文書を作る必要があるため
+hiki2yardではこれらの文書作成を容易にするコマンドの提供を目的とする.</p>
+
+<h1>Yard</h1>
+
+<p>yardとはrubyのドキュメントを生成をするgem.
+フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.
+今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている.</p>
+
+<h1>目的</h1>
+
+<p>rubyのgem directoryは,すべての開発者がはじめてそのコードを見たときにも迷わないように,
+決まった構造になっている.
+特に,docディレクトリーはrubygemsでのdocumentのデフォルトディレクトリーとして,
+wikiディレクトリーはgithubのデフォルトディレクトリーとして用意されている.
+このディレクトリーに対して,それぞれのrubygems,githubシステムがoperationを行い,
+初めて利用するユーザーあるいは開発者に対して必要な情報を提供するように作られている.
+hiki2yardで目指すものも同じ.
+決まった構造にするとこで,hikiフォーマットで書かれた文書から,
+yard,wiki文書を作る環境を自動構築することを目的としている.</p>
+
+<h1>手法</h1>
+
+<p>西谷研究室の先輩方が研究を進められていた,hikiから卒業論文等に使用するためのtex形式にするhiki2latexを参考に進めていく.
+gemのRakefileを書き換えることで,誰もが見やすく使いやすいコマンドを提供する.</p>
+
+<h1>参考文献</h1>
+
+<p><a href="http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/">http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/</a>
+2016/08/  アクセス</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Aug 18 13:32:06 2016 by
+  Generated on Sun Aug 28 10:52:56 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.5 (ruby-2.2.2).
 </div>

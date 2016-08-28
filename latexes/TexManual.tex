@@ -26,13 +26,11 @@
 \subsection{入力の方法}\begin{itemize}
 \item open -a mi hogehogeでファイルを開き,入力していく
 \end{itemize}
-\subsection{作ったtextをページにして表示}\begin{itemize}
-\item hiki -e hogehoge で編集
-\item hiki -u hogehoge で表示
-\end{itemize}
 \subsection{pdfファイルへの変換方法}\begin{enumerate}
-\item hiki2latex hogehoge.hiki $>$ hogehoge.tex
-\item hikidoc hogehoge.hiki $>$ hogehoge.html
+\item hiki2latex hikis/hogehoge.hiki $>$ latexes/hogehoge.tex
+\end{enumerate}\begin{quote}\begin{verbatim}
+ (注意).hikiはhikisフォルダに,.texファイルはlatexesフォルダに入れてください
+\end{verbatim}\end{quote}\begin{enumerate}
 \item open hogehoge.tex
 \item TeXShopが開く. 左上のタイプセットを押すとpdfファイルが出力される
 \end{enumerate}

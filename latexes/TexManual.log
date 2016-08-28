@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2015.7.31)  17 AUG 2016 19:16
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.euc) (TeX Live 2015) (preloaded format=platex 2015.7.31)  28 AUG 2016 10:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -137,12 +137,12 @@ Missing character: There is no ^^8e in font cmr10!
 
 ] (./TexManual.aux) ) 
 Here is how much of TeX's memory you used:
- 745 strings out of 493777
- 8733 string characters out of 6151334
+ 747 strings out of 493777
+ 8754 string characters out of 6151334
  69985 words of memory out of 5000000
- 4289 multiletter control sequences out of 15000+600000
- 10625 words of font info for 48 fonts, out of 8000000 for 9000
+ 4290 multiletter control sequences out of 15000+600000
+ 10793 words of font info for 49 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 25i,4n,21p,184b,182s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 25i,4n,21p,184b,200s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on TexManual.dvi (1 page, 1852 bytes).
+Output written on TexManual.dvi (1 page, 1828 bytes).

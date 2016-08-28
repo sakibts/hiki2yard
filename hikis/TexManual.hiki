@@ -14,12 +14,8 @@
 !!入力の方法
 *open -a mi hogehogeでファイルを開き,入力していく
 
-!!作ったtextをページにして表示
-*hiki -e hogehoge で編集
-*hiki -u hogehoge で表示
-
 !!pdfファイルへの変換方法
-# hiki2latex hogehoge.hiki $>$ hogehoge.tex
-# hikidoc hogehoge.hiki $>$ hogehoge.html
+# hiki2latex hikis/hogehoge.hiki $>$ latexes/hogehoge.tex
+  (注意).hikiはhikisフォルダに,.texファイルはlatexesフォルダに入れてください
 # open hogehoge.tex
 # TeXShopが開く. 左上のタイプセットを押すとpdfファイルが出力される
