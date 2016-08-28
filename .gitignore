@@ -9,3 +9,12 @@
 /wiki/
 /doc/
 *.pdf
+*[%~#] 
+.*[%~#] 
+core 
+*.log 
+*.dvi 
+*.aux 
+pout.dat 
+*.bak 
+*.synctex.gz
