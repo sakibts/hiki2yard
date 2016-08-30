@@ -1,14 +1,22 @@
 !title:yard による数値計算システムの構築
-!author:sakibts
+!author:関西学院大学理工学部　情報科学科　西谷研究室　3550 江本早希
+
+!発表に準備しなあかんもん
+# abst(聞いて貰う人に渡す, わかりやすく，思い出しやすいとか...)，一目で見てもらえる
+# power point(視覚的な資料)　時間軸
+# presentationしゃべり
+# 質疑応答，目的，具体的な作業，最終目標
 
 !はじめに
+
+（開発の背景）
 rubyでprogramを開発する際には,gemとして配布することが最終目標となる.
 gemの生成は雛形を使えば自動で行うことができるが,配布するには,開発者向けの文書も作成しなければいけない.
 文書作成のためにyardがあるが,多くの対象者にむけての文書を作る必要があるため
 hiki2yardではこれらの文書作成を容易にするコマンドの提供を目的とする.
 
-!Yard
-yardとはrubyのドキュメントを生成をするgem.
+!!Yard
+yardとはrubyのドキュメントを生成をするgem[1].
 フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.
 今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている.
 
@@ -27,6 +35,19 @@ yard,wiki文書を作る環境を自動構築することを目的としてい�
 西谷研究室の先輩方が研究を進められていた,hikiから卒業論文等に使用するためのtex形式にするhiki2latexを参考に進めていく.
 gemのRakefileを書き換えることで,誰もが見やすく使いやすいコマンドを提供する.
 
+!進捗状況
+hiki2yard開発項目
+* mathjax-yard 数式の表示
+* hiki2yard()　hikiからmdでyard
+* hiki2latex hikiからlatex
+
+!課題
+* mathjax-yardが未確認
+* hiki2yardが変換できるようにできてない．
+** Rakefileの自動書き換え
+
+* 役に立つかどうかの検証は可能ですか?
+
 ! 参考文献
-http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/
+# http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/
 2016/08/  アクセス
