@@ -10,66 +10,71 @@
 \evensidemargin -15mm
 \pagestyle{empty}
 \begin{document}
-\title{yard による数値計算システムの構築}
+\title{yardによる数式文書自動構築システムの開発}
 \author{関西学院大学理工学部　情報科学科　西谷研究室　3550 江本沙紀}
 \date{}
 \maketitle
 \section{開発の背景}
-rubyでprogramを開発する際には,gemとして配布することが最終目標となる.
-gem directoryは,すべての開発者がはじめてそのコードを見たときにも迷わないように
-決まった構造になっており,特にdocディレクトリーはrubygemsでのdocumentのデフォルトディレクトリーとして,
-wikiディレクトリーはgithubのデフォルトディレクトリーとして用意されている.
-このディレクトリーに対して,それぞれのrubygems,githubシステムがoperationを行い,
-初めて利用するユーザーあるいは開発者に対して必要な情報を提供するように作られている.
-gemの生成は雛形を使えば自動で行うことができるが,配布するには,多くの対象者（表１）向けの文書の作成をしなければいけない.
-この文書作成に利用されるのがyardである.
-hiki2yardでは,同じように決まった構造にすることで,hikiフォーマットで書かれた文書から,
-yardで文書を作る環境を自動構築することコマンドの提供を目的としている.
-\begin{itemize}
-\item 文書の対象者一覧
-\end{itemize}
-\begin{table}[htbp]\begin{center}
-\caption{}
-\begin{tabular}{lllll}
-\hline
-directory  &format  &目的   &対象者  \\ \hline
-hikis   &hiki   &hiki   &自分  \\
-converter   &hiki2md  \\
-gem\_name.wiki   &md   &github  &ユーザ（使用法）  \\
-converter   &yard\  \\
-doc   &html   &gem   &開発者,改良者  \\
-converter   &hiki2latex  \\
-docs   &latex   &卒論pdf   &学生,教授  \\
-\hline
-\end{tabular}
-\label{default}
-\end{center}\end{table}
-%for inserting separate lines, use \hline, \cline{2-3} etc.
+プログラミング開発においてはそれらのコード内容を解析して自動的に表示するシステムが必須である．
+rubyにおいては，そのためにrdocというシステムが活用されている．
 
-\section{yardの特徴}\begin{enumerate}
-\item フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている\cite{a}.
-\item @のタグを利用することでパラメータ,返り値,サンプルコードなどを記述できる\cite{b}.
-\item 自由なフォーマットで作成することができ,どのDSL(ドメイン固有言語)にも対応している.拡張性があり,修正が容易になる\cite{c}.
+一方で，数式を含んだ文章を作成する際には問題が生じる．
+数式記法として一般的なlatex記法を文章中に埋め込むと変換時にコンフリクトを起こすためである．
+実際に，例えばgithub上でwikiを自動生成するシステムではlatex変換を放棄している．
+
+本研究では，数値計算ソフトを開発する際に不可欠となる，
+「codeの解説」と「数式を含んだ文章」とを同時に自動変換するシステムの開発を目的としている．
+具体的にはlatex変換を担うjavascriptであるmathjaxを，rubyのドキュメント作成
+システムであるyardに組み込むことを目標としている．
+
+\section{rubyの開発環境と文書作成}
+
+rubyでprogramを開発する際には，gemとして配布する形態が一般的である．
+このgem directoryは,すべての開発者がはじめてそのコードを見たときにも迷わないように
+標準化された構造になっている．
+この開発環境であるgemディレクトリの生成は雛形を使って自動で行うことができるが，
+gem作成にあたっては，多くの異なった対象者向けの文書を作成しなければならない．
+例えば，docディレクトリーはrubygemsでのdocumentのデフォルトディレクトリーとして,
+また，wikiディレクトリーはgithubのデフォルトディレクトリーとして用意されている.
+このディレクトリーに対して,それぞれのrubygems,githubシステムが操作を行い,
+初めて利用するユーザーあるいは開発者に対して必要な情報を提供するという規約が
+一般に順守されている．
+
+この文書作成に利用されるのがyardである.
+
+
+\section{なぜyardか}
+rubyのドキュメント作成ではrdocというシステムが標準であったが，
+現在の主流はyardに移行しつつある．
+rdocではrubyのコードのmethodやclassなどのreferenceを作ることのみが可能であったが，
+yardはREADMEなどの付属文書も一括して作成するからである．その特徴は，
+\begin{enumerate}
+\item フォーマットを用意することによりrdocに比べ，
+誰でも同じようなドキュメントを生成できるので可読性を高めることができる\cite{a}．
+\item rdocの記法である'@'を用いたタグを利用することでパラメータ，返り値，サンプルコードなどを記述できる\cite{b}.
+\item 自由なフォーマットで作成することができ, mark downなどの文章整形だけでなく，haml, Rakefile, specなどのDSL(ドメイン固有言語)にも対応している．拡張性があり，修正が容易\cite{c}．
 \end{enumerate}
+などであり，rdocに比べメンテナンスがより容易になるという点で次世代を期待されている.
+
+
 \section{進捗状況と課題}
-hiki2yard開発項目
-\begin{itemize}
-\item hiki2latex (hikiファイルからtexファイルへの変換)\begin{itemize}
-\item install,動作確認共に終了.texのファイルも必要なのでhiki2yardの文書自動作成に加える.
-\end{itemize}
-\item mathjax-yard  (数式の表示)\begin{itemize}
-\item gemはinstall済みだが,動作未確認.hiki2yardでも数式を扱えるように組み込む予定.
-\end{itemize}
-\item hiki2yard (hikiファイルからyardで文書表示)\begin{itemize}
-\item Rakefileを書き換え,完成させる.
-\end{itemize}
-\end{itemize}\begin{itemize}
-\item 役に立つかどうかの検証は可能ですか?
-\end{itemize}
+mathjaxはlatex形式の表記をweb browserで表示できるようにしたjava scriptである\cite{mathjax}．
+mathjax-yardは，gem環境に配置された数式を含んだmd文書から
+yard標準の変換時に数式を含んだwebサイトを自動構築する\cite{mathjax-yard}．
+
+md文書からlatexの数式表記を抜き出し，yaml形式で退避させておき，yardにより
+htmlに変換した後に，元へ戻す操作をしている．
+
+しかし，latex表記とrdoc表記ではおなじ\verb|$...$|表記に対して異なったformatが
+対応している．したがって，これらが混在する文書を作成するときには意図したのとは
+違った出力となる．そこで，html headでの記述を書き換えて，latex標準とは
+違ったタグを用意することを計画している．
 
 \begin{thebibliography}{3}
 \bibitem{a}「RubyドキュメントをきれいにするYARD」\url{http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html}2016/08/29アクセス
 \bibitem{b}「YARD,RDoc比較」\url{http://qiita.com/kmats@github/items/0c8919a65afbe18e9e37} 2016/09/01アクセス
-\bibitem{c}「YARD」\url{http://yardoc.org/index.html} 2016/09/01アクセス
+\bibitem{c}YARD, \url{http://yardoc.org/index.html} 2016/09/01アクセス
+\bibitem{mathjax}MathJax, \url{https://www.mathjax.org} 2016/09/01アクセス
+\bibitem{mathjax-yard} mathjax-yard, \url{https://rubygems.org/gems/mathjax-yard/versions/1.0.2} 2016/09/01アクセス
 \end{thebibliography}
 \end{document}

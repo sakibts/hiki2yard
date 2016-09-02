@@ -1,0 +1,14 @@
+¥begin{table}[hb]¥begin{center}
+¥caption{文書の対象者一覧．}
+¥begin{tabular}{llllll}
+¥hline
+directory  &input  & converter   &対象者  ¥¥ 
+or file  &  &    &  ¥¥ ¥hline
+lib   &*.rb   &rdoc,yard   &programmer  ¥¥
+spec   &*.rb   &yard   &tester  ¥¥
+lib/views   &*.haml   &yard  &web designer  ¥¥
+*.md   &*.md   &--   &ユーザ  ¥¥ ¥hline
+¥end{tabular}
+¥label{default}
+¥end{center}¥end{table}
+%for inserting separate lines, use ¥hline, ¥cline{2-3} etc.
