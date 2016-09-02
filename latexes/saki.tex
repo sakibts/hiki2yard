@@ -1,7 +1,7 @@
 \documentclass[10pt,a4j,twocolumn]{jsarticle}
 
 \usepackage[dvipdfmx]{graphicx}
-
+\usepackage{url}
 \setlength{\textheight}{275mm}
 \headheight 5mm
 \topmargin -30mm
@@ -23,9 +23,7 @@ wikiディレクトリーはgithubのデフォルトディレクトリーとし�
 初めて利用するユーザーあるいは開発者に対して必要な情報を提供するように作られている.
 gemの生成は雛形を使えば自動で行うことができるが,配布するには,多くの対象者（表１）向けの文書の作成をしなければいけない.
 この文書作成に利用されるのがyardである.
-フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.
-今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている[1].
-hiki2yardでは,同じように決まった構造にするとこで,hikiフォーマットで書かれた文書から,
+hiki2yardでは,同じように決まった構造にすることで,hikiフォーマットで書かれた文書から,
 yardで文書を作る環境を自動構築することコマンドの提供を目的としている.
 \begin{itemize}
 \item 文書の対象者一覧
@@ -34,14 +32,14 @@ yardで文書を作る環境を自動構築することコマンドの提供を�
 \caption{}
 \begin{tabular}{lllll}
 \hline
-directory  &format  &for   &対象者  \\ \hline
+directory  &format  &目的   &対象者  \\ \hline
 hikis   &hiki   &hiki   &自分  \\
 converter   &hiki2md  \\
 gem\_name.wiki   &md   &github  &ユーザ（使用法）  \\
-converter   &yard  \\
-doc   &html   &gem   &開発者，あるいは改良者  \\
+converter   &yard\  \\
+doc   &html   &gem   &開発者,改良者  \\
 converter   &hiki2latex  \\
-docs   &latex   &卒論，修論pdf   &学生，教授  \\
+docs   &latex   &卒論pdf   &学生,教授  \\
 \hline
 \end{tabular}
 \label{default}
@@ -49,30 +47,29 @@ docs   &latex   &卒論，修論pdf   &学生，教授  \\
 %for inserting separate lines, use \hline, \cline{2-3} etc.
 
 \section{yardの特徴}\begin{enumerate}
-\item @~というタグを利用することでパラメータ,返り値,サンプルコードなどを記述できる.[2]
-\item 自由なフォーマットで作成することができ,どのDSL(ドメイン固有言語)にも対応している
-\end{enumerate}\begin{quote}\begin{verbatim}
- 拡張性があり,修正が容易になる.[3]
-\end{verbatim}\end{quote}
+\item フォーマットを用意することによりrdocに比べ,誰でも同じようなドキュメントを生成できるので可読性を高めることができる.今はrdocが主流になっているが,よりメンテナンスが容易になるという点で次世代を期待されている\cite{a}.
+\item @のタグを利用することでパラメータ,返り値,サンプルコードなどを記述できる\cite{b}.
+\item 自由なフォーマットで作成することができ,どのDSL(ドメイン固有言語)にも対応している.拡張性があり,修正が容易になる\cite{c}.
+\end{enumerate}
 \section{進捗状況と課題}
 hiki2yard開発項目
 \begin{itemize}
-\item hiki2latex　(hikiファイルからtexファイルへの変換)\begin{itemize}
+\item hiki2latex (hikiファイルからtexファイルへの変換)\begin{itemize}
 \item install,動作確認共に終了.texのファイルも必要なのでhiki2yardの文書自動作成に加える.
 \end{itemize}
-\item mathjax-yard 　(数式の表示)\begin{itemize}
+\item mathjax-yard  (数式の表示)\begin{itemize}
 \item gemはinstall済みだが,動作未確認.hiki2yardでも数式を扱えるように組み込む予定.
 \end{itemize}
-\item hiki2yard　(hikiファイルからyardで文書表示)\begin{itemize}
+\item hiki2yard (hikiファイルからyardで文書表示)\begin{itemize}
 \item Rakefileを書き換え,完成させる.
 \end{itemize}
 \end{itemize}\begin{itemize}
 \item 役に立つかどうかの検証は可能ですか?
 \end{itemize}
-\section{参考文献}
-[1]\verb|http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html/| 2016/08/29アクセス
 
-[2]\verb|http://qiita.com/kmats@github/items/0c8919a65afbe18e9e37| 2016/09/01アクセス
-
-[3]\verb|http://yardoc.org/index.html| 2016/09/01アクセス
+\begin{thebibliography}{3}
+\bibitem{a}「RubyドキュメントをきれいにするYARD」\url{http://morizyun.github.io/blog/yard-rails-ruby-gem-document-html}2016/08/29アクセス
+\bibitem{b}「YARD,RDoc比較」\url{http://qiita.com/kmats@github/items/0c8919a65afbe18e9e37} 2016/09/01アクセス
+\bibitem{c}「YARD」\url{http://yardoc.org/index.html} 2016/09/01アクセス
+\end{thebibliography}
 \end{document}
